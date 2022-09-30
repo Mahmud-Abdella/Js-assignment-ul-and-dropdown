@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Create Elements</title>
+
+    <style>
+      .active {
+        color: blue;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="addList"></div>
+    <button id="changecolor" onclick="changeColor()">Change Color</button>
+
+    <script>
+      //  1. Create a ul element
+
+      function createList() {
+        let uList = document.createElement("ul");
+        document.getElementById("addList").appendChild(uList);
+        // 2. Create 2 li elements
+        for (let i = 0; i < 2; i++) {
+          let liElement = document.createElement("li");
+          let arr = ["web designer", "web developer"];
+          // 3. Add text to li elements
+          liItems = arr.map((x) => {
+            liElement.setAttribute("id", x);
+            liElement.innerHTML = x;
+          });
+          uList.appendChild(liElement);
+        }
+      }
+      createList();
+
+      // 4. Add ul tag to  body
+      let uList1 = document.createElement("ul");
+      document.body.appendChild(uList1)[1];
+
+      //  5. Create a function to change color of the li element on click
+      function changeColor() {
+      }
+    </script>
+  </body>
+</html>
