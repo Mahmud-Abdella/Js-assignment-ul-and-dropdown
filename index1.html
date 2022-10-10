@@ -5,30 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dropdown</title>
+    <style>
+      .btn {
+        margin: 60px;
+        color: brown;
+      }
+    </style>
   </head>
   <body>
     <script>
       //  1. Create a dropdown
       let createDrop = document.createElement("select");
-      document.body.appendChild(createDrop);
-
+      createDrop.setAttribute("id", "color");
       //     2. Add 5 colors options
-      for (let i = 0; i < 5; i++) {
-        let options = document.createElement("option");
-        let arr = ["red", "blue", "green", "white", "yellow"];
-        arr.map((i) => {
-          options.innerHTML = i;
-          createDrop.appendChild(options);
-        });
-      }
-      createDrop();
-      //   3. Add button
-    
 
+      for (let i = 0; i < 5; i++) {
+        let arr = ["green", "blue", "red", "white", "yellow"];
+        let option = document.createElement("option");
+        optn = arr[i];
+        option.textContent = optn;
+        option.value = optn;
+        createDrop.appendChild(option);
+        document.body.appendChild(createDrop);
+      }
+      //   3. Add button
       let button = document.createElement("button");
       document.body.appendChild(button);
+      button.innerHTML = "remove selected option";
+      button.classList.add("btn");
+      button.addEventListener("onclick", removeOption());
 
-      //     4. Create a function to remove the selected option from the dropdown
-    </script>
+      //     4. Create a function to remove the selected option from the dropdow
+
+      function removeOption() {
+        let optn = document.getElementById("color");
+        optn.remove(optn.selectedIndex);
+      };
+       </script>
   </body>
 </html>
